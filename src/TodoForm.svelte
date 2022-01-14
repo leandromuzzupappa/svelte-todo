@@ -1,15 +1,17 @@
 <script>
-  function formSubmitted(event) {
-    event.preventDefault();
+  export let addTodo;
+  let newTodo = "";
 
-    console.log("Form was submitted");
+  function formSubmitted(event) {
+    addTodo(newTodo);
+    newTodo = "";
   }
 </script>
 
 <form on:submit|preventDefault={formSubmitted}>
   <label>
     New Todo
-    <input type="text" placeholder="Enter a todo ..." />
+    <input type="text" bind:value={newTodo} placeholder="Enter a todo ..." />
   </label>
   <button>Add Todo</button>
 </form>
